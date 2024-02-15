@@ -1,0 +1,12 @@
+[submodule "vendor/glfw"]
+	path = vendor/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "Tray Racer/vendor/glfw"]
+	path = Tray Racer/vendor/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "Tray Racer/vendor/glm"]
+	path = Tray Racer/vendor/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "Tray Racer/vendor/spdlog"]
+	path = Tray Racer/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
