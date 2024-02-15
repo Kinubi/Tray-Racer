@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/bin/Debug-windows-x86_64/Tray Racer
+/bin-int/Debug-windows-x86_64
+*.sln
+/Tray Racer/.vs/Raytracing
+*.vcxproj
+*.filters
+*.user
