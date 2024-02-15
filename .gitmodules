@@ -1,6 +1,3 @@
-[submodule "vendor/glfw"]
-	path = vendor/glfw
-	url = https://github.com/glfw/glfw.git
 [submodule "Tray Racer/vendor/glfw"]
 	path = Tray Racer/vendor/glfw
 	url = https://github.com/glfw/glfw.git
