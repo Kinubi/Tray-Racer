@@ -2,6 +2,7 @@
 #include "Window.h"
 
 
+
 namespace TrayRacer {
 
 	Window::Window(WindowProps& windowprops)
@@ -19,6 +20,10 @@ namespace TrayRacer {
 		if (!glfwInit())
 			return false;
 
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+
 		m_Window = glfwCreateWindow(m_Data.Width, m_Data.Height, m_Data.Title.c_str(), NULL, NULL);
 
 		if (!m_Window)
@@ -30,33 +35,32 @@ namespace TrayRacer {
 
 		HZ_CORE_ASSERT(status, "Failed to initialize glad");
 
+		std::cout << glGetString(GL_VERSION) << std::endl;
 
-		float positions[6] = {
+		float positions[] = {
 			-0.5f, -0.5f,
-			0.0f, 0.5f,
-			0.5f, -0.5f,
+			 0.0f,  0.5f,
+			 0.5f, -0.5f
 		};
 
-		glGenBuffers(1, &m_buffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_buffer);
-		glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
-		return true;
+		
+		Renderer2DData rendererData = Renderer2D::LoadShaders();
+		Renderer2D::BindVertexBuffer(positions, 0, 2, 0);
+		
 
+
+		return true;
 
 	}
 
 	void Window::OnUpdate()
 	{
-		/* Render here */
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		/* Swap front and back b */
-		//
-		glDrawArrays(GL_TRIANGLES, 0, 3);
 		
 
+		
+		
 		glfwSwapBuffers(m_Window);
-
+		Renderer2D::OnUpdate();
 		/* Poll for and process events */
 		glfwPollEvents();
 	}

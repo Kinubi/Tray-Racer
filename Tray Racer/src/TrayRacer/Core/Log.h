@@ -46,15 +46,15 @@ inline OStream& operator<<(OStream& os, glm::qua<T, Q> quaternion)
 }
 
 // Core log macros
-#define HZ_CORE_TRACE(...)    ::Hazel::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define HZ_CORE_INFO(...)     ::Hazel::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define HZ_CORE_WARN(...)     ::Hazel::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define HZ_CORE_ERROR(...)    ::Hazel::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define HZ_CORE_CRITICAL(...) ::Hazel::Log::GetCoreLogger()->critical(__VA_ARGS__)
+#define HZ_CORE_TRACE(...)    ::TrayRacer::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define HZ_CORE_INFO(...)     ::TrayRacer::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define HZ_CORE_WARN(...)     ::TrayRacer::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define HZ_CORE_ERROR(...)    ::TrayRacer::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define HZ_CORE_CRITICAL(...) ::TrayRacer::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
-#define HZ_TRACE(...)         ::Hazel::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define HZ_INFO(...)          ::Hazel::Log::GetClientLogger()->info(__VA_ARGS__)
-#define HZ_WARN(...)          ::Hazel::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define HZ_ERROR(...)         ::Hazel::Log::GetClientLogger()->error(__VA_ARGS__)
-#define HZ_CRITICAL(...)      ::Hazel::Log::GetClientLogger()->critical(__VA_ARGS__)
+#define HZ_TRACE(...)         ::TrayRacer::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define HZ_INFO(...)          ::TrayRacer::Log::GetClientLogger()->info(__VA_ARGS__)
+#define HZ_WARN(...)          ::TrayRacer::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define HZ_ERROR(...)         ::TrayRacer::Log::GetClientLogger()->error(__VA_ARGS__)
+#define HZ_CRITICAL(...)      ::TrayRacer::Log::GetClientLogger()->critical(__VA_ARGS__)

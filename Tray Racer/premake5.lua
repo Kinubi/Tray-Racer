@@ -1,13 +1,13 @@
 project "Tray Racer"
 	kind "ConsoleApp"
 	language "C++"
-	cppdialect "C++20"
+	cppdialect "C++17"
 
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
-	--pchheader "hzpch.h"
-	--pchsource "src/hzpch.cpp"
+	pchheader "hzpch.h"
+	pchsource "src/hzpch.cpp"
 
 	files
 	{
@@ -30,6 +30,7 @@ project "Tray Racer"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.Glad}",
+		"%{IncludeDir.VulkanSDK}"
 	}
 
 	links
@@ -57,25 +58,36 @@ project "Tray Racer"
 
 	filter "configurations:Debug"
 		runtime "Debug"
+		defines "HZ_DEBUG"
 		symbols "on"
 
 		links
 		{
+			"%{Library.ShaderC_Debug}",
+			"%{Library.SPIRV_Cross_Debug}",
+			"%{Library.SPIRV_Cross_GLSL_Debug}"
 		}
 
 	filter "configurations:Release"
 		runtime "Release"
+		defines "HZ_RELEASE"
 		optimize "on"
 
 		links
 		{
-
+			"%{Library.ShaderC_Release}",
+			"%{Library.SPIRV_Cross_Release}",
+			"%{Library.SPIRV_Cross_GLSL_Release}"
 		}
 
 	filter "configurations:Dist"
 		runtime "Release"
+		defines "HZ_DIST"
 		optimize "on"
 
 		links
 		{
+			"%{Library.ShaderC_Release}",
+			"%{Library.SPIRV_Cross_Release}",
+			"%{Library.SPIRV_Cross_GLSL_Release}"
 		}

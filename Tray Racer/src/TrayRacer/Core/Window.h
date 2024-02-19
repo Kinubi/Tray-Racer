@@ -2,8 +2,11 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+
 #include "TrayRacer/Core/Base.h"
 #include "TrayRacer/Events/Event.h"
+#include "TrayRacer/Renderer/Renderer2D.h"
 
 #include <sstream>
 
@@ -48,15 +51,18 @@ namespace TrayRacer {
 			bool VSync;
 		};
 
+		uint32_t m_Buffer; 
+		bool ShouldClose();
+	private:
+		Ref<Renderer2D> m_Renderer;
+
 		GLFWwindow* m_Window;
 
 		WindowData m_Data;
 
 		bool m_Success;
 
-		uint32_t m_buffer;
 
-		bool ShouldClose();
 	};
 
 }
